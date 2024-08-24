@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: parking-management-service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/demo
+    username: demo
+    password: test
+
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        highlight_sql: true
+        hbm2ddl:
+          auto: create

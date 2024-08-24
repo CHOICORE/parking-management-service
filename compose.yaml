@@ -1,0 +1,11 @@
+services:
+  mysql:
+    image: 'mysql:lts'
+    container_name: 'mysql-lts'
+    environment:
+      - 'MYSQL_DATABASE=demo'
+      - 'MYSQL_PASSWORD=test'
+      - 'MYSQL_ROOT_PASSWORD=test'
+      - 'MYSQL_USER=demo'
+    ports:
+      - '3306:3306'
