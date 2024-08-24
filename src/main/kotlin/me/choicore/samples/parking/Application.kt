@@ -11,10 +11,11 @@ import java.util.TimeZone
 @SpringBootApplication
 class Application {
     @Bean
-    fun initializer(): CommandLineRunner = CommandLineRunner {
-        Locale.setDefault(Locale.KOREA)
-        TimeZone.setDefault(TimeZone.getTimeZone(ZoneId.of("Asia/Seoul")))
-    }
+    fun initializer(): CommandLineRunner =
+        CommandLineRunner {
+            Locale.setDefault(Locale.KOREA)
+            TimeZone.setDefault(TimeZone.getTimeZone(ZoneId.of("Asia/Seoul")))
+        }
 }
 
 fun main(args: Array<String>) {
