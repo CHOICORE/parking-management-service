@@ -4,6 +4,11 @@ data class LicensePlate(
     val value: String,
 ) {
     init {
-        require(value.matches(Regex("^[0-9]{2,3}[가-힣][0-9]{4}\$"))) { "Invalid license plate format." }
+        require(value.matches(LICENSE_PLATE_REGEX)) { "Invalid license plate format: $value" }
+    }
+
+    companion object {
+        const val LICENSE_PLATE_PATTERN: String = "^[0-9]{2,3}[가-힣][0-9]{4}\$"
+        val LICENSE_PLATE_REGEX: Regex = Regex(pattern = LICENSE_PLATE_PATTERN)
     }
 }

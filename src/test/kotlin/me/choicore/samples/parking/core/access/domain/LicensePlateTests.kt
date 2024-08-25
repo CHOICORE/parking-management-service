@@ -12,7 +12,7 @@ class LicensePlateTests {
         assertThatIllegalArgumentException()
             .isThrownBy {
                 LicensePlate(licensePlate)
-            }.withMessage("Invalid license plate format.")
+            }.withMessage("Invalid license plate format: $licensePlate")
     }
 
     @ParameterizedTest
