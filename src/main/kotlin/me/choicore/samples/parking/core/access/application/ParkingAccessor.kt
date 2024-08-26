@@ -32,10 +32,6 @@ class ParkingAccessor(
         return accessKey
     }
 
-    private fun publishParkingAccessedEvent(parkingTransaction: ParkingTransaction) {
-        applicationEventPublisher.publishEvent(ParkingAccessedEvent(parkingTransaction))
-    }
-
     fun departed(
         accessKey: AccessKey?,
         licensePlate: LicensePlate,
@@ -54,5 +50,9 @@ class ParkingAccessor(
 
     private fun registerParkingTransaction(parkingTransaction: ParkingTransaction) {
         parkingAccessRegister.register(parkingTransaction)
+    }
+
+    private fun publishParkingAccessedEvent(parkingTransaction: ParkingTransaction) {
+        applicationEventPublisher.publishEvent(ParkingAccessedEvent(parkingTransaction))
     }
 }
