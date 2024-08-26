@@ -8,7 +8,7 @@ import org.springframework.context.event.EventListener
 import org.springframework.stereotype.Component
 
 @Component
-private class ParkingAccessedEventListener {
+internal class ParkingAccessedEventListener {
     @EventListener(ParkingAccessedEvent::class)
     fun onParkingAccessedEvent(event: ParkingAccessedEvent) {
         if (event.source is ParkingTransaction) {
