@@ -1,6 +1,6 @@
 package me.choicore.samples.parking.core.access.domain
 
-import me.choicore.samples.parking.core.access.domain.AccessType.ENTERED
+import me.choicore.samples.parking.core.access.domain.AccessType.ARRIVED
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import java.time.LocalDateTime
@@ -11,7 +11,7 @@ class ParkingTransactionTests {
         val accessedAt: LocalDateTime = LocalDateTime.now()
         val licensePlate = LicensePlate(value = "123가4567")
         val accessKey: AccessKey = AccessKey.generate()
-        val accessType: AccessType = ENTERED
+        val accessType: AccessType = ARRIVED
 
         val parkingTransaction =
             ParkingTransaction(

@@ -1,7 +1,7 @@
 package me.choicore.samples.parking.core.access.domain
 
-import me.choicore.samples.parking.core.access.domain.AccessType.ENTERED
-import me.choicore.samples.parking.core.access.domain.AccessType.EXITED
+import me.choicore.samples.parking.core.access.domain.AccessType.ARRIVED
+import me.choicore.samples.parking.core.access.domain.AccessType.DEPARTED
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.NONE
@@ -13,14 +13,14 @@ import java.time.LocalDateTime
 @SpringBootTest(webEnvironment = NONE)
 @TestConstructor(autowireMode = ALL)
 @Transactional
-class ParkingTransactionLoggerTests(
-    private val parkingTransactionLogger: ParkingTransactionLogger,
+class ParkingTransactionRegisterTests(
+    private val parkingTransactionRegister: ParkingTransactionRegister,
 ) {
     @Test
     fun t1() {
         val accessedAt: LocalDateTime = LocalDateTime.now()
         val accessKey: AccessKey = AccessKey.generate()
-        val accessType: AccessType = ENTERED
+        val accessType: AccessType = ARRIVED
 
         val parkingTransaction =
             ParkingTransaction(
@@ -30,14 +30,14 @@ class ParkingTransactionLoggerTests(
                 accessedAt = accessedAt,
             )
 
-        parkingTransactionLogger.log(parkingTransaction)
+        parkingTransactionRegister.register(parkingTransaction)
     }
 
     @Test
     fun t2() {
         val accessedAt: LocalDateTime = LocalDateTime.now()
         val accessKey: AccessKey? = null
-        val accessType: AccessType = ENTERED
+        val accessType: AccessType = ARRIVED
 
         val parkingTransaction =
             ParkingTransaction(
@@ -47,14 +47,14 @@ class ParkingTransactionLoggerTests(
                 accessedAt = accessedAt,
             )
 
-        parkingTransactionLogger.log(parkingTransaction)
+        parkingTransactionRegister.register(parkingTransaction)
     }
 
     @Test
     fun t3() {
         val accessedAt: LocalDateTime = LocalDateTime.now()
         val accessKey: AccessKey = AccessKey.generate()
-        val accessType: AccessType = EXITED
+        val accessType: AccessType = DEPARTED
 
         val parkingTransaction =
             ParkingTransaction(
@@ -64,14 +64,14 @@ class ParkingTransactionLoggerTests(
                 accessedAt = accessedAt,
             )
 
-        parkingTransactionLogger.log(parkingTransaction)
+        parkingTransactionRegister.register(parkingTransaction = parkingTransaction)
     }
 
     @Test
     fun t4() {
         val accessedAt: LocalDateTime = LocalDateTime.now()
         val accessKey: AccessKey? = null
-        val accessType: AccessType = EXITED
+        val accessType: AccessType = DEPARTED
 
         val parkingTransaction =
             ParkingTransaction(
@@ -81,6 +81,6 @@ class ParkingTransactionLoggerTests(
                 accessedAt = accessedAt,
             )
 
-        parkingTransactionLogger.log(parkingTransaction)
+        parkingTransactionRegister.register(parkingTransaction = parkingTransaction)
     }
 }
