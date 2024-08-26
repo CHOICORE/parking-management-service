@@ -16,7 +16,7 @@ class ParkingTransactionRepositoryAdapter(
                 log.debug("converting parking transaction to entity: {}", it)
                 parkingTransactionJpaRepository.save(it)
             }.also {
-                log.info("Registered parking transaction id: {}", it.id)
+                log.info("Registered parking transaction id: {}, access key: {}", it.id, it.accessKey)
             }
     }
 

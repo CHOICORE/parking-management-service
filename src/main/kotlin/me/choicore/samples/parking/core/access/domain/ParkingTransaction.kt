@@ -6,8 +6,8 @@ import java.time.LocalTime
 import java.time.temporal.ChronoUnit
 
 data class ParkingTransaction(
-    val licensePlate: LicensePlate,
     val accessKey: AccessKey?,
+    val licensePlate: LicensePlate,
     val accessType: AccessType,
     val accessedAt: LocalDateTime,
 ) {

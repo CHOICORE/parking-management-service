@@ -18,9 +18,9 @@ class ParkingTransactionRegisterTests(
 ) {
     @Test
     fun t1() {
-        val accessedAt: LocalDateTime = LocalDateTime.now()
         val accessKey: AccessKey = AccessKey.generate()
         val accessType: AccessType = ARRIVED
+        val accessedAt: LocalDateTime = LocalDateTime.now()
 
         val parkingTransaction =
             ParkingTransaction(
@@ -35,14 +35,14 @@ class ParkingTransactionRegisterTests(
 
     @Test
     fun t2() {
-        val accessedAt: LocalDateTime = LocalDateTime.now()
         val accessKey: AccessKey? = null
         val accessType: AccessType = ARRIVED
+        val accessedAt: LocalDateTime = LocalDateTime.now()
 
         val parkingTransaction =
             ParkingTransaction(
-                licensePlate = LicensePlate(value = "123가4567"),
                 accessKey = accessKey,
+                licensePlate = LicensePlate(value = "123가4567"),
                 accessType = accessType,
                 accessedAt = accessedAt,
             )
@@ -52,14 +52,14 @@ class ParkingTransactionRegisterTests(
 
     @Test
     fun t3() {
-        val accessedAt: LocalDateTime = LocalDateTime.now()
         val accessKey: AccessKey = AccessKey.generate()
         val accessType: AccessType = DEPARTED
+        val accessedAt: LocalDateTime = LocalDateTime.now()
 
         val parkingTransaction =
             ParkingTransaction(
-                licensePlate = LicensePlate(value = "123가4567"),
                 accessKey = accessKey,
+                licensePlate = LicensePlate(value = "123가4567"),
                 accessType = accessType,
                 accessedAt = accessedAt,
             )
@@ -69,14 +69,14 @@ class ParkingTransactionRegisterTests(
 
     @Test
     fun t4() {
-        val accessedAt: LocalDateTime = LocalDateTime.now()
         val accessKey: AccessKey? = null
         val accessType: AccessType = DEPARTED
+        val accessedAt: LocalDateTime = LocalDateTime.now()
 
         val parkingTransaction =
             ParkingTransaction(
-                licensePlate = LicensePlate(value = "123가4567"),
                 accessKey = accessKey,
+                licensePlate = LicensePlate(value = "123가4567"),
                 accessType = accessType,
                 accessedAt = accessedAt,
             )

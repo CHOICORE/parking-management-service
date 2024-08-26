@@ -8,15 +8,15 @@ import java.time.LocalDateTime
 class ParkingTransactionTests {
     @Test
     fun t1() {
-        val accessedAt: LocalDateTime = LocalDateTime.now()
-        val licensePlate = LicensePlate(value = "123가4567")
         val accessKey: AccessKey = AccessKey.generate()
+        val licensePlate = LicensePlate(value = "123가4567")
         val accessType: AccessType = ARRIVED
+        val accessedAt: LocalDateTime = LocalDateTime.now()
 
         val parkingTransaction =
             ParkingTransaction(
-                licensePlate = licensePlate,
                 accessKey = accessKey,
+                licensePlate = licensePlate,
                 accessType = accessType,
                 accessedAt = accessedAt,
             )

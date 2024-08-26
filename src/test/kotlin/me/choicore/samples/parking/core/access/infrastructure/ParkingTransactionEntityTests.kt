@@ -15,15 +15,15 @@ class ParkingTransactionEntityTests {
         val accessedAt: LocalDateTime = LocalDateTime.now()
         val parkingTransaction =
             ParkingTransaction(
-                licensePlate = LicensePlate(value = "123가4567"),
                 accessKey = AccessKey.generate(),
+                licensePlate = LicensePlate(value = "123가4567"),
                 accessType = ARRIVED,
                 accessedAt = accessedAt,
             )
         val entity = ParkingTransactionEntity(parkingTransaction = parkingTransaction)
 
-        assertThat(entity.licensePlate).isEqualTo("123가4567")
         assertThat(entity.accessKey).isNotNull
+        assertThat(entity.licensePlate).isEqualTo("123가4567")
         assertThat(entity.accessType).isEqualTo(ARRIVED)
         assertThat(entity.accessedAt).isNotNull
         assertThat(entity.accessedDate).isNotNull.isEqualTo(accessedAt.toLocalDate())
@@ -36,8 +36,8 @@ class ParkingTransactionEntityTests {
         val accessedAt: LocalDateTime = LocalDateTime.now()
         val parkingTransaction =
             ParkingTransaction(
-                licensePlate = LicensePlate(value = "123가4567"),
                 accessKey = AccessKey.generate(),
+                licensePlate = LicensePlate(value = "123가4567"),
                 accessType = ARRIVED,
                 accessedAt = accessedAt,
             )
