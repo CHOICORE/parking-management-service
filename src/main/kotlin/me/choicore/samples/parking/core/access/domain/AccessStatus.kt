@@ -7,5 +7,6 @@ enum class AccessStatus(
     ARRIVED_UNRECORDED(description = "입차 누락"),
     DEPARTED(description = "출차"),
     DEPARTED_UNRECORDED(description = "출차 누락"),
-    COMPLETED(description = "입출차 완료"),
+    COMPLETED(description = "입•출차 완료"),
+    MISSED_ACCESS_KEY(description = "누락된 엑세스 키"),
 }
